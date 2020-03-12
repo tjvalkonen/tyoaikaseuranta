@@ -4,4 +4,4 @@ Sovelluksen avulla pidetään kirjaa projekteihin käytetystä työajasta. Tarko
 
 ## Dokumentaatio
 
-[Tietokantakaavio](https://github.com/tjvalkonen/tyoaikaseuranta/blob/master/dokumentointi/Tietokantakaavio.png)
+[Tietokantakaavio](https://github.com/tjvalkonen/tyoaikaseuranta/blob/master/dokumentointi/Tietokantakaavio01.png)
