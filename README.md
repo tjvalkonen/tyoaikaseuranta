@@ -5,3 +5,7 @@ Sovelluksen avulla pidetään kirjaa projekteihin käytetystä työajasta. Tarko
 ## Dokumentaatio
 
 [Tietokantakaavio](https://github.com/tjvalkonen/tyoaikaseuranta/blob/master/dokumentointi/Tietokantakaavio01.png)
+
+## Heroku
+
+[tjv-tyoaikaseuranta](https://tjv-tyoaikaseuranta.herokuapp.com/)
