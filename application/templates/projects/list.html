@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Project</th>
+      <th>Done</th>
+    </tr>
+    {% for project in projects %}
+    <tr>
+      <td>{{ project.name }}</td>
+      <td>{{ project.done }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
