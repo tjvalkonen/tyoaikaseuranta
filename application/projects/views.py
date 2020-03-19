@@ -1,5 +1,5 @@
 from application import app, db
-from flask import render_template, request
+from flask import redirect, render_template, request, url_for
 from application.projects.models import Project
 
 @app.route("/projects", methods=["GET"])
@@ -10,6 +10,15 @@ def projects_index():
 def projects_form():
     return render_template("projects/new.html")
 
+@app.route("/projects/<project_id>/", methods=["POST"])
+def projects_set_done(project_id):
+
+    t = Project.query.get(project_id)
+    t.done = True
+    db.session().commit()
+  
+    return redirect(url_for("projects_index"))
+
 @app.route("/projects/", methods=["POST"])
 def projects_create():
     p = Project(request.form.get("name"))
@@ -17,4 +26,4 @@ def projects_create():
     db.session().add(p)
     db.session().commit()
   
-    return "hello world!"
+    return redirect(url_for("projects_index"))
