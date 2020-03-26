@@ -1,10 +1,10 @@
 from flask import render_template, request, redirect, url_for
 from flask_login import login_user, logout_user
 
-from application import app
+from application import app, db
 from application.auth.models import User
 from application.auth.forms import LoginForm
-
+from application.auth.forms import AccountForm
 
 @app.route("/auth/login", methods = ["GET", "POST"])
 def auth_login():
@@ -19,7 +19,6 @@ def auth_login():
         return render_template("auth/loginform.html", form = form,
                                 error = "No such username or password")
 
-
     login_user(user)
     return redirect(url_for("index"))
 
@@ -27,4 +26,21 @@ def auth_login():
 @app.route("/auth/logout")
 def auth_logout():
     logout_user()
-    return redirect(url_for("index"))   
+    return redirect(url_for("index"))
+
+@app.route("/auth/new", methods=["GET", "POST"])
+# @login_required
+def accounts_create():
+    form = AccountForm(request.form)
+
+    if not form.validate():
+        return render_template("auth/newAccount.html", form = form)
+
+    a = User(form.name.data)
+    a.username = form.username.data
+    a.password = form.password.data
+
+    db.session().add(a)
+    db.session().commit()
+  
+    return redirect(url_for("index"))
