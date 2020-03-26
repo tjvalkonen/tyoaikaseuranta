@@ -28,7 +28,7 @@ def projects_set_done(project_id):
 @login_required
 def projects_create():
     form = ProjectForm(request.form)
-#    p = Project(request.form.get("name"))
+
 
     if not form.validate():
         return render_template("projects/new.html", form = form)
