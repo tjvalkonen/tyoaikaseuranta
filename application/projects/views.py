@@ -24,6 +24,16 @@ def projects_set_done(project_id):
   
     return redirect(url_for("projects_index"))
 
+@app.route("/projects/<project_id>/delete/", methods=["POST"])
+@login_required
+def projects_delete(project_id):
+
+    t = Project.query.get(project_id)
+    db.session.delete(t)
+    db.session().commit()
+  
+    return redirect(url_for("projects_index"))
+
 @app.route("/projects/", methods=["POST"])
 @login_required
 def projects_create():
