@@ -1,6 +1,7 @@
 from application import app, db
 from flask import redirect, render_template, request, url_for
 from application.projects.models import Project
+from application.projects.forms import ProjectForm
 
 @app.route("/projects", methods=["GET"])
 def projects_index():
@@ -8,7 +9,7 @@ def projects_index():
 
 @app.route("/projects/new/")
 def projects_form():
-    return render_template("projects/new.html")
+    return render_template("projects/new.html", form = ProjectForm())
 
 @app.route("/projects/<project_id>/", methods=["POST"])
 def projects_set_done(project_id):
@@ -21,7 +22,14 @@ def projects_set_done(project_id):
 
 @app.route("/projects/", methods=["POST"])
 def projects_create():
-    p = Project(request.form.get("name"))
+    form = ProjectForm(request.form)
+#    p = Project(request.form.get("name"))
+
+    if not form.validate():
+        return render_template("projects/new.html", form = form)
+
+    p = Project(form.name.data)
+    p.done = form.done.data
 
     db.session().add(p)
     db.session().commit()
