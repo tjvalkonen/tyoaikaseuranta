@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Task</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% for task in tasks %}
+    <tr>
+      <td>{{ task.taskTypes }}</td>
+      <td>{{ task.description }}</td>
+      <td>
+	<form method="POST" action="{{ url_for('tasks_update', task_id=task.id) }}">
+	  <input type="submit" value="Update!"/>
+	</form>
+      </td>
+      <td>
+	<form method="POST" action="{{ url_for('tasks_delete', task_id=project.id) }}">
+	  <input type="submit" value="Delete task!"/>
+	</form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

@@ -25,6 +25,9 @@ from application import views
 from application.projects import models
 from application.projects import views
 
+from application.tasks import models
+from application.tasks import views
+
 from application.auth import models
 from application.auth import views
 
