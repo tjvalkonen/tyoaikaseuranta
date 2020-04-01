@@ -9,7 +9,7 @@ from application.tasks.forms import TaskForm
 @app.route("/tasks/<project_id>", methods=["GET"])
 @login_required
 def tasks_index(project_id):
-    return render_template("tasks/list.html", tasks = Task.find_tasks_in_project(project_id), form = TaskForm())
+    return render_template("tasks/list.html", tasks = Task.find_tasks_in_project(project_id), project_id = project_id, form = TaskForm())
 
 # @app.route("/tasks/<project_id>/new/")
 # @login_required
@@ -44,7 +44,7 @@ def tasks_create():
     project_id=request.args.get('project_id')
 
     if not form.validate():
-        return render_template("tasks/list.html", tasks = Task.find_tasks_in_project(project_id), form = form)
+        return render_template("tasks/list.html", tasks = Task.find_tasks_in_project(project_id), project_id = project_id, form = form)
 
     t = Task(form.taskType.data)
     t.description = form.description.data

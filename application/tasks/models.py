@@ -22,12 +22,14 @@ class Task(Base):
     # Haetaan kaikki projektissa tehdyt työt
     @staticmethod
     def find_tasks_in_project(project_id):
-        stmt = text("SELECT Task.id, Task.taskType, Task.description, Task.time FROM Task"
-                    " WHERE Task.project_id = project_id")
+        stmt = text("SELECT Task.id, Task.taskType, Task.description, Task.time, Task.project_id FROM Task WHERE Task.project_id = :project_id").params(project_id=project_id)
         res = db.engine.execute(stmt)
-  
+        
+        # debug print
+        # print(project_id)
+
         response = []
         for row in res:
-            response.append({"id":row[0], "taskType":row[1], "description":row[2], "time":row[3]})
+            response.append({"id":row[0], "taskType":row[1], "description":row[2], "time":row[3], "project_id":row[4]})
 
         return response
