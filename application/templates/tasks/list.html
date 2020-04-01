@@ -1,6 +1,62 @@
 {% extends "layout.html" %}
 
 {% block body %}
+<form method="POST" action="{{ url_for('tasks_create', project_id=project_id) }}">
+    <table>
+	<p>project_id{{ project_id }}</p>
+      <tr>
+	<td>
+	  {{ form.taskType.label }}
+	</td>
+	<td>
+	  {{ form.taskType }}
+	</td>
+	<td>
+	  <ul>
+	    {% for error in form.taskType.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  {{ form.description.label }}
+	</td>
+	<td>
+	  {{ form.description }}
+	</td>
+	<td>
+	  <ul>
+	    {% for error in form.description.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
+	</td>
+      </tr>
+      <tr>
+	<td>
+	  {{ form.time.label }}
+	</td>
+	<td>
+	  {{ form.time }}
+	</td>
+	<td>
+	  <ul>
+	    {% for error in form.time.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
+	</td>
+      </tr>
+      <tr>
+	<td colspan="3">
+	  <input type="submit" value="Add a task"/>
+	</td>
+      </tr>
+</form>
+
+
   <table>
     <tr>
       <th>Task</th>
@@ -8,20 +64,13 @@
       <th></th>
       <th></th>
     </tr>
+
     {% for task in tasks %}
     <tr>
-      <td>{{ task.taskTypes }}</td>
+      <td>{{ task.taskType }}</td>
       <td>{{ task.description }}</td>
-      <td>
-	<form method="POST" action="{{ url_for('tasks_update', task_id=task.id) }}">
-	  <input type="submit" value="Update!"/>
-	</form>
-      </td>
-      <td>
-	<form method="POST" action="{{ url_for('tasks_delete', task_id=project.id) }}">
-	  <input type="submit" value="Delete task!"/>
-	</form>
-      </td>
+      <td>{{ task.time }}</td>
+      <td>{{ task.project_id }}</td>
     </tr>
     {% endfor %}
   </table>
