@@ -1,77 +1,60 @@
 {% extends "layout.html" %}
 
 {% block body %}
+<p>project_id: {{ project_id }}</p>
+<p>work done : {{ workdone }}</p>
+
 <form method="POST" action="{{ url_for('tasks_create', project_id=project_id) }}">
-    <table>
-	<p>project_id{{ project_id }}</p>
-      <tr>
-	<td>
-	  {{ form.taskType.label }}
-	</td>
-	<td>
-	  {{ form.taskType }}
-	</td>
-	<td>
-	  <ul>
+
+  <div class="form-row">
+    <div class="col">
+      {{ form.taskType.label }}</br>
+      {{ form.taskType }}
+      	  <ul>
 	    {% for error in form.taskType.errors %}
 	    <li>{{ error }}</li>
 	    {% endfor %}
 	  </ul>
-	</td>
-      </tr>
-      <tr>
-	<td>
+    </div>
+    <div class="col">
 	  {{ form.description.label }}
-	</td>
-	<td>
 	  {{ form.description }}
-	</td>
-	<td>
 	  <ul>
 	    {% for error in form.description.errors %}
 	    <li>{{ error }}</li>
 	    {% endfor %}
 	  </ul>
-	</td>
-      </tr>
-      <tr>
-	<td>
-	  {{ form.time.label }}
-	</td>
-	<td>
+    </div>
+    <div class="col">
+	  {{ form.time.label }}</br>
 	  {{ form.time }}
-	</td>
-	<td>
 	  <ul>
 	    {% for error in form.time.errors %}
 	    <li>{{ error }}</li>
 	    {% endfor %}
 	  </ul>
-	</td>
-      </tr>
-      <tr>
-	<td colspan="3">
-	  <input type="submit" value="Add a task"/>
-	</td>
-      </tr>
+    </div>
+    <div class="col"></br>
+      <input type="submit" value="Add a task"/>
+    </div>
+  </div>  
+
 </form>
+  {% for task in tasks %}
+  <div class="form-row">
+    <div class="col">
+        {{ task.taskType }}
+    </div>
+    <div class="col">
+        {{ task.description }}
+    </div>
+    <div class="col">
+        {{ task.time }}
+    </div>
+    <div class="col">
+        {{ task.project_id }}
+    </div>
+  </div> 
+  {% endfor %}
 
-
-  <table>
-    <tr>
-      <th>Task</th>
-      <th>Description</th>
-      <th>Time</th>
-      <th>Project id</th>
-    </tr>
-
-    {% for task in tasks %}
-    <tr>
-      <td>{{ task.taskType }}</td>
-      <td>{{ task.description }}</td>
-      <td>{{ task.time }}</td>
-      <td>{{ task.project_id }}</td>
-    </tr>
-    {% endfor %}
-  </table>
 {% endblock %}

@@ -10,7 +10,6 @@
 
   <body>
 
-
       <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
 	<a class="navbar-brand" href="#">Työaikaseuranta</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,6 +28,8 @@
 	    {% if current_user.is_authenticated %}
 	    <a href="{{ url_for('auth_logout') }}">Hello {{ current_user.name }} -- Logout</a>
 	    {% else %}
+            <a href="{{ url_for('accounts_create') }}">Create new account</a>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
 	    <a href="{{ url_for('auth_login') }}">Login</a>
 	    {% endif %}
           </div>

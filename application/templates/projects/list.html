@@ -1,28 +1,52 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table>
-    <tr>
-      <th>Project</th>
-      <th>Done</th>
-      <th></th>
-      <th></th>
-    </tr>
+  <div class="form-row">
+    <div class="col">
+      Project name
+    </div>
+    <div class="col">
+      x
+    </div>
+    <div class="col">
+      x
+    </div>
+    <div class="col">
+      Project ended
+    </div>
+    <div class="col">
+      x
+    </div>
+    <div class="col">
+      x
+    </div>
+  </div>
+
     {% for project in projects %}
-    <tr>
-      <td><a href="{{ url_for('tasks_index', project_id=project.id) }}">{{ project.name }}</a></td>
-      <td>{{ project.done }}</td>
-      <td>
+  <div class="form-row">
+    <div class="col">
+      <a href="{{ url_for('tasks_index', project_id=project.id) }}">{{ project.name }}</a>
+    </div>
+    <div class="col">
+      x
+    </div>
+    <div class="col">
+      x
+    </div>
+    <div class="col">
+      {{ project.done }}
+    </div>
+    <div class="col">
 	<form method="POST" action="{{ url_for('projects_set_done', project_id=project.id) }}">
-	  <input type="submit" value="Change status!"/>
+	  <input type="submit" value="End project!"/>
 	</form>
-      </td>
-      <td>
+    </div>
+    <div class="col">
 	<form method="POST" action="{{ url_for('projects_delete', project_id=project.id) }}">
 	  <input type="submit" value="Delete project!"/>
 	</form>
-      </td>
-    </tr>
+    </div>
+  </div>
     {% endfor %}
-  </table>
+
 {% endblock %}

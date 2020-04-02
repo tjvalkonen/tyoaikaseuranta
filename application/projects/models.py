@@ -1,6 +1,8 @@
 from application import db
 from application.models import Base
 
+from sqlalchemy.sql import text
+
 class Project(Base):
 
     name = db.Column(db.String(144), nullable=False)
@@ -12,3 +14,15 @@ class Project(Base):
     def __init__(self, name):
         self.name = name
         self.done = False
+
+    # Lasketaan yhteen kaikki projektissa tehdyt työt
+    @staticmethod
+    def work_done_in_project(project_id):
+        stmt = text("SELECT SUM(Task.time) FROM Task WHERE Task.project_id = :project_id").params(project_id=project_id)
+        res = db.engine.execute(stmt)
+        
+        response = []
+        for row in res:
+            response.append({"time":row[0]})
+
+        return response
