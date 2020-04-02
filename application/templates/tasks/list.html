@@ -2,9 +2,6 @@
 
 {% block body %}
 <p>project_id: {{ project_id }}</p>
-  {% for w in workdone %}
-<p>work done : {{ w.time }}</p>
-  {% endfor %}
 
 <form method="POST" action="{{ url_for('tasks_create', project_id=project_id) }}">
 
