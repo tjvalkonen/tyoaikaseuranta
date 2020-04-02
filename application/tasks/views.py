@@ -46,7 +46,7 @@ def tasks_create():
     project_id=request.args.get('project_id')
 
     if not form.validate():
-        return render_template("tasks/list.html", tasks = Task.find_tasks_in_project(project_id), project_id = project_id, form = form)
+        return render_template("tasks/list.html", tasks = Task.find_tasks_in_project(project_id), workdone = Project.work_done_in_project(project_id), project_id = project_id, form = form)
 
     t = Task(form.taskType.data)
     t.description = form.description.data
