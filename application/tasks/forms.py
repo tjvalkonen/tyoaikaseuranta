@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import BooleanField, StringField, IntegerField, SelectField, validators
 
 class TaskForm(FlaskForm):
-    taskType = SelectField("Task type", choices=[('Design', 'Design'), ('Programming', 'Programming'), ('Testing', 'Testing'), ('Maintenance', 'Maintenance'), ('Other', 'Other')])
+    tasktype = SelectField("Task type", choices=[('Design', 'Design'), ('Programming', 'Programming'), ('Testing', 'Testing'), ('Maintenance', 'Maintenance'), ('Other', 'Other')])
     description = StringField("Description", [validators.Length(min=2)])
     time = IntegerField("Time")
  

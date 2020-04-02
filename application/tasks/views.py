@@ -48,7 +48,7 @@ def tasks_create():
     if not form.validate():
         return render_template("tasks/list.html", tasks = Task.find_tasks_in_project(project_id), workdone = Project.work_done_in_project(project_id), project_id = project_id, form = form)
 
-    t = Task(form.taskType.data)
+    t = Task(form.tasktype.data)
     t.description = form.description.data
     t.time = form.time.data
     t.project_id = project_id

@@ -2,15 +2,18 @@
 
 {% block body %}
 <p>project_id: {{ project_id }}</p>
+  {% for w in workdone %}
+<p>work done : {{ w.time }}</p>
+  {% endfor %}
 
 <form method="POST" action="{{ url_for('tasks_create', project_id=project_id) }}">
 
   <div class="form-row">
     <div class="col">
-      {{ form.taskType.label }}</br>
-      {{ form.taskType }}
+      {{ form.tasktype.label }}</br>
+      {{ form.tasktype }}
       	  <ul>
-	    {% for error in form.taskType.errors %}
+	    {% for error in form.tasktype.errors %}
 	    <li>{{ error }}</li>
 	    {% endfor %}
 	  </ul>
@@ -42,7 +45,7 @@
   {% for task in tasks %}
   <div class="form-row">
     <div class="col">
-        {{ task.taskType }}
+        {{ task.tasktype }}
     </div>
     <div class="col">
         {{ task.description }}
