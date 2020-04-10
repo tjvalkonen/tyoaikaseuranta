@@ -13,31 +13,6 @@ from application.projects.models import Project
 def tasks_index(project_id):
     return render_template("tasks/list.html", tasks = Task.find_tasks_in_project(project_id), workdone = Project.work_done_in_project(project_id), project_id = project_id, form = TaskForm())
 
-# @app.route("/tasks/<project_id>/new/")
-# @login_required
-# def tasks_form(project_id):
-#     return render_template("tasks/new.html", form = TaskForm())
-
-# @app.route("/tasks/<project_id>/<task_id>/", methods=["POST"])
-# @login_required
-# def tasks_update(task_id):
-
-#     t = Task.query.get(task_id)
-    # t.time = True
-#     db.session().commit()
-  
-#     return redirect(url_for("tasks_index"))
-
-# @app.route("/tasks/<project_id>/<task_id>/delete/", methods=["POST"])
-# @login_required
-# def tasks_delete(task_id):
-
-#    t = Project.query.get(task_id)
-#    db.session.delete(t)
-#    db.session().commit()
-  
-#    return redirect(url_for("tasks_index"))
-
 # @app.route("/tasks")
 @app.route("/tasks", methods=["POST"])
 @login_required

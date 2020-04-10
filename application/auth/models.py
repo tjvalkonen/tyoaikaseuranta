@@ -1,6 +1,8 @@
 from application import db
 from application.models import Base
 
+from sqlalchemy.sql import text
+
 class User(Base):
 
     __tablename__ = "account"
@@ -10,6 +12,8 @@ class User(Base):
     password = db.Column(db.String(144), nullable=False)
 
     projects = db.relationship("Project", backref='account', lazy=True)
+
+    tasks = db.relationship("Task", backref='account', lazy=True)
 
     def __init__(self, name):
         self.name = name
@@ -25,3 +29,6 @@ class User(Base):
 
     def is_authenticated(self):
         return True
+
+    def roles(self):
+        return ["ADMIN"]

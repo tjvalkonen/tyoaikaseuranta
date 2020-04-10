@@ -1,11 +1,12 @@
 from flask import redirect, render_template, request, url_for
-from flask_login import login_required, current_user
+from flask_login import current_user
 
-from application import app, db
+from application import app, db, login_required
 from application.projects.models import Project
 from application.projects.forms import ProjectForm
 
 @app.route("/projects", methods=["GET"])
+@login_required
 def projects_index():
     return render_template("projects/list.html", projects = Project.query.all())
 
@@ -25,7 +26,7 @@ def projects_set_done(project_id):
     return redirect(url_for("projects_index"))
 
 @app.route("/projects/<project_id>/delete/", methods=["POST"])
-@login_required
+@login_required(role="ADMIN")
 def projects_delete(project_id):
 
     t = Project.query.get(project_id)
@@ -35,7 +36,7 @@ def projects_delete(project_id):
     return redirect(url_for("projects_index"))
 
 @app.route("/projects/", methods=["POST"])
-@login_required
+@login_required(role="ADMIN")
 def projects_create():
     form = ProjectForm(request.form)
 
