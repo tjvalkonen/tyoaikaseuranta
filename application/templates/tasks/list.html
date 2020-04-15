@@ -6,10 +6,24 @@
 <p>work done : {{ w.time }}</p>
   {% endfor %}
 
+  {% for e in workestimated %}
+<p>work estimated : {{ e.time }}</p>
+  {% endfor %}
+
+
 <form method="POST" action="{{ url_for('tasks_create', project_id=project_id) }}">
 
   <div class="form-row">
-    <div class="col">
+    <div class="col-md-2">
+      {{ form.taskstatus.label }}</br>
+      {{ form.taskstatus }}
+      	  <ul>
+	    {% for error in form.taskstatus.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
+    </div>
+    <div class="col-md-2">
       {{ form.tasktype.label }}</br>
       {{ form.tasktype }}
       	  <ul>
@@ -18,25 +32,25 @@
 	    {% endfor %}
 	  </ul>
     </div>
-    <div class="col">
+    <div class="col-md-3">
 	  {{ form.description.label }}
-	  {{ form.description }}
+	  {{ form.description(size=20, maxlength=30) }}
 	  <ul>
 	    {% for error in form.description.errors %}
 	    <li>{{ error }}</li>
 	    {% endfor %}
 	  </ul>
     </div>
-    <div class="col">
+    <div class="col-md-2">
 	  {{ form.time.label }}</br>
-	  {{ form.time }}
+	  {{ form.time(size=5, maxlength=5) }}
 	  <ul>
 	    {% for error in form.time.errors %}
 	    <li>{{ error }}</li>
 	    {% endfor %}
 	  </ul>
     </div>
-    <div class="col"></br>
+    <div class="col-md-2"></br>
       <input type="submit" value="Add a task"/>
     </div>
   </div>  
@@ -44,17 +58,20 @@
 </form>
   {% for task in tasks %}
   <div class="form-row">
-    <div class="col">
+    <div class="col-md-2">
+        {{ task.taskstatus }}
+    </div>
+    <div class="col-md-2">
         {{ task.tasktype }}
     </div>
-    <div class="col">
+    <div class="col-md-3">
         {{ task.description }}
     </div>
-    <div class="col">
+    <div class="col-md-2">
         {{ task.time }}
     </div>
-    <div class="col">
-        {{ task.project_id }}
+    <div class="col-md-2">
+        
     </div>
   </div> 
   {% endfor %}

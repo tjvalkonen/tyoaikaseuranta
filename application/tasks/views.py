@@ -11,7 +11,7 @@ from application.projects.models import Project
 @app.route("/tasks/<project_id>", methods=["GET"])
 @login_required
 def tasks_index(project_id):
-    return render_template("tasks/list.html", tasks = Task.find_tasks_in_project(project_id), workdone = Project.work_done_in_project(project_id), project_id = project_id, form = TaskForm())
+    return render_template("tasks/list.html", tasks = Task.find_tasks_in_project(project_id), workdone = Project.work_done_in_project(project_id), workestimated = Project.work_estimated_in_project(project_id), project_id = project_id, form = TaskForm())
 
 # @app.route("/tasks")
 @app.route("/tasks", methods=["POST"])
@@ -26,6 +26,7 @@ def tasks_create():
     t = Task(form.tasktype.data)
     t.description = form.description.data
     t.time = form.time.data
+    t.taskstatus = form.taskstatus.data
     t.project_id = project_id
     t.account_id = current_user.id
 
