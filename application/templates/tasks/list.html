@@ -14,7 +14,7 @@
 <form method="POST" action="{{ url_for('tasks_create', project_id=project_id) }}">
 
   <div class="form-row">
-    <div class="col-md-2">
+    <div class="col-md-2 border">
       {{ form.taskstatus.label }}</br>
       {{ form.taskstatus }}
       	  <ul>
@@ -23,7 +23,7 @@
 	    {% endfor %}
 	  </ul>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-2 border">
       {{ form.tasktype.label }}</br>
       {{ form.tasktype }}
       	  <ul>
@@ -32,7 +32,7 @@
 	    {% endfor %}
 	  </ul>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 border">
 	  {{ form.description.label }}
 	  {{ form.description(size=20, maxlength=30) }}
 	  <ul>
@@ -41,7 +41,7 @@
 	    {% endfor %}
 	  </ul>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-2 border">
 	  {{ form.time.label }}</br>
 	  {{ form.time(size=5, maxlength=5) }}
 	  <ul>
@@ -58,16 +58,16 @@
 </form>
   {% for task in tasks %}
   <div class="form-row">
-    <div class="col-md-2">
+    <div class="col-md-2 border">
         {{ task.taskstatus }}
     </div>
-    <div class="col-md-2">
+    <div class="col-md-2 border">
         {{ task.tasktype }}
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 border">
         {{ task.description }}
     </div>
-    <div class="col-md-2">
+    <div class="col-md-2 border">
         {{ task.time }}
     </div>
     <div class="col-md-2">

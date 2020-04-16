@@ -10,6 +10,7 @@ class User(Base):
     name = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
+    role = db.Column(db.String(144), nullable=False)
 
     projects = db.relationship("Project", backref='account', lazy=True)
 
@@ -31,4 +32,4 @@ class User(Base):
         return True
 
     def roles(self):
-        return ["ADMIN"]
+        return [self.role]

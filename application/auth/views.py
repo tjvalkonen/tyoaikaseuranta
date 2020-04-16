@@ -39,6 +39,7 @@ def accounts_create():
     a = User(form.name.data)
     a.username = form.username.data
     a.password = form.password.data
+    a.role = form.role.data
 
     db.session().add(a)
     db.session().commit()

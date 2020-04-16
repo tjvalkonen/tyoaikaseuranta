@@ -2,46 +2,46 @@
 
 {% block body %}
   <div class="form-row">
-    <div class="col">
+    <div class="col-md-2 border">
       Project name
     </div>
-    <div class="col">
+    <div class="col-md-2 border">
       x
     </div>
-    <div class="col">
+    <div class="col-md-2 border">
       x
     </div>
-    <div class="col">
+    <div class="col-md-2 border">
       Project ended
     </div>
-    <div class="col">
+    <div class="col-md-2 border">
       x
     </div>
-    <div class="col">
+    <div class="col-md-2 border">
       x
     </div>
   </div>
 
     {% for project in projects %}
   <div class="form-row">
-    <div class="col">
+    <div class="col-md-2 border">
       <a href="{{ url_for('tasks_index', project_id=project.id) }}">{{ project.name }}</a>
     </div>
-    <div class="col">
+    <div class="col-md-2 border">
       x
     </div>
-    <div class="col">
+    <div class="col-md-2 border">
       x
     </div>
-    <div class="col">
+    <div class="col-md-2 border">
       {{ project.done }}
     </div>
-    <div class="col">
+    <div class="col-md-2 border">
 	<form method="POST" action="{{ url_for('projects_set_done', project_id=project.id) }}">
 	  <input type="submit" value="End project!"/>
 	</form>
     </div>
-    <div class="col">
+    <div class="col-md-2 border">
 	<form method="POST" action="{{ url_for('projects_delete', project_id=project.id) }}">
 	  <input type="submit" value="Delete project!"/>
 	</form>

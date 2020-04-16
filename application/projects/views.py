@@ -40,7 +40,6 @@ def projects_delete(project_id):
 def projects_create():
     form = ProjectForm(request.form)
 
-
     if not form.validate():
         return render_template("projects/new.html", form = form)
 
