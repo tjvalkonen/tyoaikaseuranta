@@ -3,6 +3,11 @@
 {% block body %}
 <form method="POST" action="{{ url_for('accounts_create') }}">
   <div class="form-row">
+    <div class="col-md-8">
+       <h2>Create new account</h2>
+    </div>
+  </div>
+  <div class="form-row">
     <div class="col-md-2 border">
       {{ form.role.label }}</br>
       {{ form.role }}
@@ -37,8 +42,8 @@
     </div>
     <div class="col-md-2 border">
       </br>
-      </br>
-      <input type="submit" value="Create!"/>
+
+      <input type="submit" value="Create"/>
     </div>
   </div>
 

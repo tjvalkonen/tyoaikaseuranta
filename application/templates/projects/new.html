@@ -1,6 +1,12 @@
 {% extends "layout.html" %}
   
 {% block body %}
+  <div class="form-row">
+    <div class="col-md-8">
+       <h2>Add a project</h2>
+    </div>
+  </div>
+
 <form method="POST" action="{{ url_for('projects_create') }}">
     <table>
       <tr>
