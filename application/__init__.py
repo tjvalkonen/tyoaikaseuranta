@@ -60,6 +60,8 @@ from application.tasks import views
 from application.auth import models
 from application.auth import views
 
+from application.accounts import views
+
 # Kirjautuminen 2. osa
 from application.auth.models import User
 
