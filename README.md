@@ -33,3 +33,42 @@ Testitunnukset
 username: hello
 
 password: world
+
+## Tietokanta
+
+CREATE TABLE account (
+	id INTEGER NOT NULL, 
+	date_created DATETIME, 
+	date_modified DATETIME, 
+	name VARCHAR(144) NOT NULL, 
+	username VARCHAR(144) NOT NULL, 
+	password VARCHAR(144) NOT NULL, 
+	role VARCHAR(144) NOT NULL, 
+	PRIMARY KEY (id)
+);
+CREATE TABLE project (
+	id INTEGER NOT NULL, 
+	date_created DATETIME, 
+	date_modified DATETIME, 
+	name VARCHAR(144) NOT NULL, 
+	done BOOLEAN NOT NULL, 
+	account_id INTEGER NOT NULL, 
+	PRIMARY KEY (id), 
+	CHECK (done IN (0, 1)), 
+	FOREIGN KEY(account_id) REFERENCES account (id)
+);
+CREATE TABLE task (
+	id INTEGER NOT NULL, 
+	date_created DATETIME, 
+	date_modified DATETIME, 
+	tasktype VARCHAR(144) NOT NULL, 
+	description VARCHAR(144) NOT NULL, 
+	time INTEGER NOT NULL, 
+	taskstatus VARCHAR(144) NOT NULL, 
+	project_id INTEGER NOT NULL, 
+	account_id INTEGER NOT NULL, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(project_id) REFERENCES project (id), 
+	FOREIGN KEY(account_id) REFERENCES account (id)
+);
+
