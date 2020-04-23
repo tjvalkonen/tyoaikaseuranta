@@ -35,7 +35,7 @@ username: hello
 password: world
 
 ## Tietokanta
-
+```
 CREATE TABLE account (
 	id INTEGER NOT NULL, 
 	date_created DATETIME, 
@@ -71,4 +71,4 @@ CREATE TABLE task (
 	FOREIGN KEY(project_id) REFERENCES project (id), 
 	FOREIGN KEY(account_id) REFERENCES account (id)
 );
-
+```
