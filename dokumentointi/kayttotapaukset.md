@@ -31,6 +31,10 @@ FROM project
 
 Käyttäjä syöttää lisättävän projektin Add project -sivulla.
 
+```
+INSERT INTO project (date_created, date_modified, name, done, account_id) VALUES (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, ?, ?, ?)
+```
+
 ## Projektin merkitseminen päättyneeksi
 
 x
