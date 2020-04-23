@@ -12,7 +12,7 @@ Sovelluksen avulla pidetään kirjaa projekteihin käytetystä työajasta. Tarko
 
 Kopioi repository koneellesi. (Jos kopioit .zip paketin, pura se haluamaasi kansioon koneellesi)
 
-Tarvitset Pythonin käyttöön koneellesi. [www.python.org] (https://www.python.org/)
+Tarvitset Pythonin käyttöön koneellesi. [www.python.org](https://www.python.org/)
 
 Avaa komentorivi-näkymä ja mene kopioimasi repositoryn juurihakemistoon.
 
