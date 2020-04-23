@@ -1,19 +1,33 @@
 # Käyttötapaukset
 
+## Käyttäjätunnukset
+
+Käyttäjä lisää käyttäjätunnuksen (USER) käyttäjätunnuksen luontilomakkeella.
+
+Ylläpitäjä (ADMIN) voi lisätä ylläpitäjä tunnuksen
+
+Ylläpitäjä (ADMIN) voi poistaa tunnuksen
+
+Ylläpitäjä (ADMIN) voi muokata tunnusta
+
+Oman tunnuksen tietoja voi muokata
+
 ## Projektien listaaminen
 
-Käyttäjä menee sivulle etusivulle (https://tjv-tyoaikaseuranta.herokuapp.com/) ja klikkaa "List projects"-linkkiä.
+Käyttäjä näkee järjestelmässä olevat projektit Projects List -sivulla
 
 ## Projektin lisääminen
 
-Käyttäjä menee sivulle etusivulle (https://tjv-tyoaikaseuranta.herokuapp.com/) ja kilkkaa "Add a project"-linkkiä.
-Käyttäjä syöttää lisättävän projektin nimen tekstikenttään ja klikkaa "Add a new project"-nappia
+Käyttäjä syöttää lisättävän projektin Add project -sivulla.
 
 ## Projektin merkitseminen päättyneeksi
 
-Käyttäjä menee sivulle etusivulle (https://tjv-tyoaikaseuranta.herokuapp.com/) ja klikkaa "List projects"-linkkiä.
-Käyttäjä klikkaa halutun projektin kohdalta "Change status!"-nappia
+x
 
 ## Tehdyn työn lisääminen projektiin
 
-Projektit listalta voi valita projektin nimeä klikkaamalla näkymän projektin tehdyistä työtehtävistä. Tehdyn työn voi lisätä lomakkeella.
+Käyttäjä valitsee projektit listalta projektin sen nimeä klikkaamalla.
+
+Tehdyn työn voi lisätä projektin työt listan yllä olevalla lomakkeella.
+
+Käyttäjä voi valita työn tyypiksi arvion työmäärästä (ESTIMATE) tai toteutunut työ (ACTUAL).
