@@ -50,13 +50,13 @@ Projektin voi merkitä päättyneeksi (sillä ei ole merkitystä sovelluksessa t
 
 Projektin nimeä klikkaamalla pääsee projektin töiden listukseen.
 
-Work done in projekt listauksessa on projekteihin tehty työ listattuna projekteittain.
+Work done in project -listauksessa on projekteihin tehty työ listattuna projekteittain.
 
 #### Project's tasks (projektin töiden listaus)
 
 Tässä on listattuna projektiin merkityt arviot töistä ja tehdyt työt.
 
-Tasks status valitaan sen mukaan syitetäänkä arviota työmäärästä vai oikeaa toteutunutta työtä.
+Tasks status valitaan sen mukaan syötetäänkö arviota työmäärästä vai oikeaa toteutunutta työtä.
 
 ### 2. Add a Project (Projektin lisäys)
 
