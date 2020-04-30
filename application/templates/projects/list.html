@@ -38,7 +38,7 @@
       x
     </div>
     <div class="col-md-2 border">
-      {{ project.time }}
+      x
     </div>
     <div class="col-md-2 border">
       {{ project.done }}
@@ -55,5 +55,31 @@
     </div>
   </div>
     {% endfor %}
+</br>
+       <h2>Work done in project</h2>
+
+    {% for project in work_done_in_projects %}
+  <div class="form-row">
+    <div class="col-md-2 border">
+      {{ project.name }}
+    </div>
+    <div class="col-md-2 border">
+      x
+    </div>
+    <div class="col-md-2 border">
+      {{ project.time }}
+    </div>
+    <div class="col-md-2 border">
+      {{ project.done }}
+    </div>
+    <div class="col-md-2 border">
+	x
+    </div>
+    <div class="col-md-2 border">
+	x
+    </div>
+  </div>
+    {% endfor %}
+
 
 {% endblock %}
