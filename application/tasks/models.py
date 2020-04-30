@@ -25,9 +25,6 @@ class Task(Base):
     def find_tasks_in_project(project_id):
         stmt = text("SELECT Task.id, Task.tasktype, Task.description, Task.time, Task.taskstatus, Task.project_id FROM Task WHERE Task.project_id = :project_id").params(project_id=project_id)
         res = db.engine.execute(stmt)
-        
-        # debug print
-        # print(project_id)
 
         response = []
         for row in res:

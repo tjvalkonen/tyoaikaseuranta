@@ -1,7 +1,12 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <p>
-    Frontpage
-  </p>
+
+      {% if current_user.is_authenticated %}
+      <h2>Welcome!</h2>
+      <p></p>
+      {% else %}
+      <h2>Log in or create new account</h2>
+      {% endif %}
+
 {% endblock %}

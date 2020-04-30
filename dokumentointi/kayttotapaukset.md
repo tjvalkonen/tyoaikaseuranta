@@ -18,13 +18,18 @@ Ylläpitäjä (ADMIN) voi listata järjestelmässä olevat tunnukset
 
 Oman tunnuksen tietoja voi muokata
 
-## Projektien listaaminen
-
-Käyttäjä näkee järjestelmässä olevat projektit Projects List -sivulla
+Oman tunnuksen merkitsemät tehdyt työt näytetään projekteittain
 
 ```
-SELECT project.id AS project_id, project.date_created AS project_date_created, project.date_modified AS project_date_modified, project.name AS project_name, project.done AS project_done, project.account_id AS project_account_id 
-FROM project
+SELECT Project.id, Project.name, Project.done, SUM(Task.time) FROM Project LEFT JOIN Task ON Task.project_id = Project.id WHERE (Task.taskstatus IS 'Actual') AND (Task.account_id = ?) GROUP BY Project.id
+```
+
+## Projektien listaaminen
+
+Käyttäjä näkee järjestelmässä olevat projektit Projects List -sivulla. Listassa on tehdyt työmäärät summattina projekteittain.
+
+```
+SELECT Project.id, Project.name, Project.done, SUM(Task.time) FROM Project LEFT JOIN Task ON Task.project_id = Project.id WHERE (Task.taskstatus IS 'Actual') GROUP BY Project.id
 ```
 
 ## Projektin lisääminen
@@ -37,7 +42,8 @@ INSERT INTO project (date_created, date_modified, name, done, account_id) VALUES
 
 ## Projektin merkitseminen päättyneeksi
 
-x
+Toistaiseksi käyttämätön ominaisuus. Jatkossa projektin voisi sulkea ja tehdyt työt ja arviot arkistoitaisiin.
+
 ## Projektin työt
 
 Käyttäjä valitsee projektit listalta projektin sen nimeä klikkaamalla.
