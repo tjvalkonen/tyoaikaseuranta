@@ -60,6 +60,18 @@ Projektiin merkityt toteutuneet työtunnit yhteensä
 SELECT SUM(Task.time) FROM Task WHERE Task.project_id = :project_id AND Task.taskstatus = 'Actual'
 ```
 
+Kirjautuneen käyttäjän projektiin merkityt toteutuneet työtunnit yhteensä
+
+```
+SELECT SUM(Task.time) FROM Task WHERE Task.project_id = ? AND Task.taskstatus = 'Actual' AND Task.account_id =?
+```
+
+Kirjautuneen käyttäjän projektiin merkityt arvioidut työtunnit yhteensä
+
+```
+SELECT SUM(Task.time) FROM Task WHERE Task.project_id = ? AND Task.taskstatus = 'Estimate' AND Task.account_id =?
+```
+
 ## Työn lisääminen projektiin
 
 Tehdyn työn voi lisätä projektin työt listan yllä olevalla lomakkeella.

@@ -8,7 +8,9 @@ from application.projects.forms import ProjectForm
 @app.route("/projects", methods=["GET"])
 @login_required
 def projects_index():
-    return render_template("projects/list.html", projects = Project.query.all())
+    return render_template("projects/list.html", projects = Project.projects_list_workdone())
+
+# projects = Project.query.all())
 
 @app.route("/projects/new/")
 @login_required

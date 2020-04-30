@@ -9,12 +9,21 @@
   </div>
 
 <p>project_id: {{ project_id }}</p>
+
   {% for w in workdone %}
 <p>work done : {{ w.time }}</p>
   {% endfor %}
 
   {% for e in workestimated %}
 <p>work estimated : {{ e.time }}</p>
+  {% endfor %}
+
+  {% for u in userworkdone %}
+<p>work done by you : {{ u.time }}</p>
+  {% endfor %}
+
+  {% for ue in userworkestimate %}
+<p>work estimated for/by you : {{ ue.time }}</p>
   {% endfor %}
 
 

@@ -34,3 +34,4 @@ class Task(Base):
             response.append({"id":row[0], "tasktype":row[1], "description":row[2], "time":row[3], "taskstatus":row[4], "project_id":row[5]})
 
         return response
+
