@@ -32,9 +32,9 @@ Avaa komentorivi-näkymä ja mene kopioimasi repositoryn juurihakemistoon.
 
 Luo Heroku projekti komennolla: heroku create <projektin-nimi>
 
-Alusta git komennilla: git init
+Alusta git komennolla: git init
 
-Lisää git hallinta komennolla: git remote add heroku https://git.heroku.com/<projektin-nimi>.git
+Lisää git hallinta Herokuun komennolla: git remote add heroku https://git.heroku.com/<projektin-nimi>.git
 
 Lähetä projektisi Herokuun komennoilla: git add ., git commit -m"" ja git push heroku master
 
