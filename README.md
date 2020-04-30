@@ -24,6 +24,22 @@ Asenna tarvittavat riippuvuudet: pip install -r requirements.txt
 
 Käynnistä sovellus komennolla: python run.py
 
+### Käyttöönotto Herokussa
+
+Asenna Heroku CLI ja git [https://devcenter.heroku.com/articles/heroku-cli](https://devcenter.heroku.com/articles/heroku-cli) [https://git-scm.com/](https://git-scm.com/)
+
+Avaa komentorivi-näkymä ja mene kopioimasi repositoryn juurihakemistoon.
+
+Luo Heroku projekti komennolla: heroku create <projektin-nimi>
+
+Alusta git komennilla: git init
+
+Lisää git hallinta komennolla: git remote add heroku https://git.heroku.com/<projektin-nimi>.git
+
+Lähetä projektisi Herokuun komennoilla: git add ., git commit -m"" ja git push heroku master
+
+Projektisi löytyy herokusta osoitteesta <projektin-nimi>.herokuapp.com
+
 ## Käyttöohje
 
 Luo itsellesi tuonnus oikean yläkulman "Create new account" -linkin takaa.
