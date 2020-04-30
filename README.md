@@ -30,15 +30,15 @@ Asenna Heroku CLI ja git. Löydät ne osoitteista: [https://devcenter.heroku.com
 
 Avaa komentorivi-näkymä ja mene kopioimasi repositoryn juurihakemistoon.
 
-Luo Heroku projekti komennolla: heroku create <projektin-nimi>
+Luo Heroku projekti komennolla: heroku create "projektin-nimi"
 
 Alusta git komennolla: git init
 
-Lisää git hallinta Herokuun komennolla: git remote add heroku https://git.heroku.com/<projektin-nimi>.git
+Lisää git hallinta Herokuun komennolla: git remote add heroku https://git.heroku.com/"projektin-nimi".git
 
 Lähetä projektisi Herokuun komennoilla: git add ., git commit -m"" ja git push heroku master
 
-Projektisi löytyy herokusta osoitteesta <projektin-nimi>.herokuapp.com
+Projektisi löytyy herokusta osoitteesta "projektin-nimi".herokuapp.com
 
 ## Käyttöohje
 
