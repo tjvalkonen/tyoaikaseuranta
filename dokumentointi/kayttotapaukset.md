@@ -8,13 +8,13 @@ Käyttäjä lisää käyttäjätunnuksen (USER) käyttäjätunnuksen luontilomak
 INSERT INTO account (date_created, date_modified, name, username, password, role) VALUES (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, ?, ?, ?, ?)
 ```
 
-Ylläpitäjä (ADMIN) voi lisätä ylläpitäjä tunnuksen
+Ylläpitäjä (ADMIN) voi lisätä ylläpitäjä tunnuksen (ADMIN ominaisuudet toteuttamatta)
 
-Ylläpitäjä (ADMIN) voi poistaa tunnuksen
+Ylläpitäjä (ADMIN) voi poistaa tunnuksen (ADMIN ominaisuudet toteuttamatta)
 
-Ylläpitäjä (ADMIN) voi muokata tunnusta
+Ylläpitäjä (ADMIN) voi muokata tunnusta (ADMIN ominaisuudet toteuttamatta)
 
-Ylläpitäjä (ADMIN) voi listata järjestelmässä olevat tunnukset
+Ylläpitäjä (ADMIN) voi listata järjestelmässä olevat tunnukset (ADMIN ominaisuudet toteuttamatta)
 
 Oman tunnuksen tietoja voi muokata
 
@@ -26,7 +26,13 @@ SELECT Project.id, Project.name, Project.done, SUM(Task.time) FROM Project LEFT 
 
 ## Projektien listaaminen
 
-Käyttäjä näkee järjestelmässä olevat projektit Projects List -sivulla. Listassa on tehdyt työmäärät summattina projekteittain.
+Käyttäjä näkee järjestelmässä olevat projektit Projects List -sivulla.
+
+```
+SELECT project.id AS project_id, project.date_created AS project_date_created, project.date_modified AS project_date_modified, project.name AS project_name, project.done AS project_done, project.account_id AS project_account_id
+```
+
+Käyttäjä näkee toisessa listassa tehdyt työmäärät summattina projekteittain.
 
 ```
 SELECT Project.id, Project.name, Project.done, SUM(Task.time) FROM Project LEFT JOIN Task ON Task.project_id = Project.id WHERE (Task.taskstatus IS 'Actual') GROUP BY Project.id
