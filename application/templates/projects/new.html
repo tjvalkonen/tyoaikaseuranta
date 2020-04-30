@@ -8,36 +8,28 @@
   </div>
 
 <form method="POST" action="{{ url_for('projects_create') }}">
-    <table>
-      <tr>
-	<td>
-	  {{ form.name.label }}
-	</td>
-	<td>
-	  {{ form.name }}
-	</td>
-	<td>
+  <div class="form-row">
+    <div class="col-md-3 border">
+	  {{ form.name.label }}</br>
+	  {{ form.name }}</br>
 	  <ul>
 	    {% for error in form.name.errors %}
 	    <li>{{ error }}</li>
 	    {% endfor %}
 	  </ul>
-	</td>
-      </tr>
-      <tr>
-	<td>
-	  {{ form.done.label }}
-	</td>
-	<td>
+    </div>
+
+    <div class="col-md-2 border">
+	  {{ form.done.label }}</br>
 	  {{ form.done }}
-	</td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-	<td colspan="3">
-	  <input type="submit" value="Add a new project"/>
-	</td>
-      </tr>
+    </div>
+
+    <div class="col-md-2 border">
+            </br>
+            <input type="submit" value="Add a new project"/>
+    </div>
+
+  </div>
+
 </form>
 {% endblock %}

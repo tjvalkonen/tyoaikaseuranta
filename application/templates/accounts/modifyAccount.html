@@ -4,9 +4,59 @@
 <form method="POST" action="{{ url_for('accounts_modify', account_id=current_user.id) }}">
   <div class="form-row">
     <div class="col-md-8">
-       <h2>Modify Account</h2>
+       <h2>Your Account</h2>
     </div>
   </div>
+  <div class="form-row">
+    <div class="col-md-2 border">
+
+      {{ current_user.role }}</br>
+
+    </div>
+    <div class="col-md-3 border">
+
+      {{ current_user.name }}</br>
+ 
+    </div>
+    <div class="col-md-2 border">
+
+      {{ current_user.username }}</br>
+ 
+    </div>
+    <div class="col-md-2 border">
+
+      {{ current_user.password }}</br>
+
+    </div>
+</div>
+
+
+</br>
+
+<h2>Work done by you in projects</h2>
+  <div class="form-row">
+    <div class="col-md-2 border">
+      Project name
+    </div>
+    <div class="col-md-2 border">
+      Actual work
+    </div>
+  </div>
+
+    {% for project in projects %}
+  <div class="form-row">
+    <div class="col-md-2 border">
+      <a href="{{ url_for('tasks_index', project_id=project.id) }}">{{ project.name }}</a>
+    </div>
+    <div class="col-md-2 border">
+      {{ project.time }}
+    </div>
+  </div>
+    {% endfor %}
+
+</br>
+
+<h2>modify Your Account</h2>
   <div class="form-row">
     <div class="col-md-2 border">
       {{ form.role.label }}</br>
