@@ -13,10 +13,10 @@
       Project name
     </div>
     <div class="col-md-2 border">
-      Estimated work
+      
     </div>
     <div class="col-md-2 border">
-      Actual work
+      
     </div>
     <div class="col-md-2 border">
       Project ended
@@ -35,10 +35,10 @@
       <a href="{{ url_for('tasks_index', project_id=project.id) }}">{{ project.name }}</a>
     </div>
     <div class="col-md-2 border">
-      x
+      
     </div>
     <div class="col-md-2 border">
-      x
+      
     </div>
     <div class="col-md-2 border">
       {{ project.done }}
@@ -57,7 +57,26 @@
     {% endfor %}
 </br>
        <h2>Work done in project</h2>
-
+  <div class="form-row">
+    <div class="col-md-2 border">
+      Project name
+    </div>
+    <div class="col-md-2 border">
+      Estimated work
+    </div>
+    <div class="col-md-2 border">
+      Actual work
+    </div>
+    <div class="col-md-2 border">
+      Project ended
+    </div>
+    <div class="col-md-2 border">
+      x
+    </div>
+    <div class="col-md-2 border">
+      x
+    </div>
+  </div>
     {% for project in work_done_in_projects %}
   <div class="form-row">
     <div class="col-md-2 border">
