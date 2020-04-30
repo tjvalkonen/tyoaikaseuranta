@@ -16,3 +16,12 @@ class AccountForm(FlaskForm):
  
     class Meta:
         csrf = False
+
+class ModifyAccountForm(FlaskForm):
+    name = StringField("Name", [validators.Length(min=2)])
+    username = StringField("Username", [validators.Length(min=2)])
+    password = PasswordField("Password", [validators.Length(min=2)])
+    role = SelectField("Role", choices=[('ADMIN', 'ADMIN'), ('USER', 'USER')])
+ 
+    class Meta:
+        csrf = False

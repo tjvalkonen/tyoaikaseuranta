@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+  
+{% block body %}
+<form method="POST" action="{{ url_for('accounts_modify', account_id=current_user.id) }}">
+  <div class="form-row">
+    <div class="col-md-8">
+       <h2>Modify Account</h2>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-2 border">
+      {{ form.role.label }}</br>
+      {{ current_user.role }}</br>
+      {{ form.role }}
+
+    </div>
+    <div class="col-md-3 border">
+      {{ form.name.label }}</br>
+      {{ current_user.name }}</br>
+      {{ form.name(size=20, maxlength=30)  }}
+      	  <ul>
+	    {% for error in form.name.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>  
+    </div>
+    <div class="col-md-2 border">
+      {{ form.username.label }}</br>
+      {{ current_user.username }}</br>
+      {{ form.username(size=10, maxlength=20) }}
+	  <ul>
+	    {% for error in form.username.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>  
+    </div>
+    <div class="col-md-2 border">
+      {{ form.password.label }}</br>
+      {{ current_user.password }}</br>
+      {{ form.password(size=10, maxlength=20)  }}
+	  <ul>
+	    {% for error in form.password.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
+    </div>
+    <div class="col-md-2 border">
+      </br>
+      </br>
+      <input type="submit" value="Modify"/>
+    </div>
+  </div>
+
+</form>
+{% endblock %}
