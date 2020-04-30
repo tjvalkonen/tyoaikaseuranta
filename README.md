@@ -24,9 +24,57 @@ Asenna tarvittavat riippuvuudet: pip install -r requirements.txt
 
 Käynnistä sovellus komennolla: python run.py
 
+## Käyttöohje
+
+Luo itsellesi tuonnus oikean yläkulman "Create new account" -linkin takaa.
+
+Voit valita tunnukselle rooliksi User tai Admin. (Admin voi tehdä joitakin toimintoja mitä User ei)
+
+Kun kirjaudut sovellukseen päänavigaatiossa on neljä osiota minne pääsee.
+
+1. Project List (Projektien listaus)
+
+2. Add a Project (Projektin lisäys)
+
+3. Accounts (Käyttäjät)
+
+4. Your Account (Sinun käyttäjätunnuksesi)
+
+# 1. Project List (Projektien listaus)
+
+Osiossa näytetään sovelluksessa olevat projektit ja niiden tietoja.
+
+Projektin voi poistaa, jos siinä ei ole yhtään työtä merkittynä (töiden poisto puuttuu tällä hetkellä)
+
+Projektin voi merkitä päättyneeksi (sillä ei ole merkitystä sovelluksessa tällä hetkellä)
+
+Projektin nimeä klikkaamalla pääsee projektin töiden listukseen.
+
+Work done in projekt listauksessa on projekteihin tehty työ listattuna projekteittain.
+
+# Project's tasks (projektin töiden listaus)
+
+Tässä on listattuna projektiin merkityt arviot töistä ja tehdyt työt.
+
+Tasks status valitaan sen mukaan syitetäänkä arviota työmäärästä vai oikeaa toteutunutta työtä.
+
+# 2. Add a Project (Projektin lisäys)
+
+Tähän lomakkeeseen syötetään projektin nimi. (Lomakkeesa voi merkitä projektin jo tehdyksi, mutta tällä ei ole merkitystä)
+
+# 3. Accounts (käyttäjät)
+
+Tässä on lista kaikista käyttäjistä. Tarkoitus on että vain ylläpitäjä (Admin) pääsee hallinnoimaan kaikkia käyttäjiä. (kokonaisuus on keskeneräinen)
+
+# 4. Your Account
+
+Täällä näkee oman käyttäjätunnuksen tiedot ja voi muokata niitä sekä näkee mihin projekteihin on tehnyt työtä.
+
 ## Heroku
 
 [tjv-tyoaikaseuranta](https://tjv-tyoaikaseuranta.herokuapp.com/)
+
+Tällä hetkellä Heroku ei toimi. Yhteenvetokyselyt kun ovat tyhjiä, sovellus ei toimi. Omalla koneella toimii. 
 
 Testitunnukset
 
